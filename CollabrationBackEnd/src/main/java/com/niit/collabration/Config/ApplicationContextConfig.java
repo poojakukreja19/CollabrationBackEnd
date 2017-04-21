@@ -27,30 +27,14 @@ import com.niit.collabration.Model.Userdetail;
 	@ComponentScan("com.niit.collaboration")
 	@EnableTransactionManagement
 	public class ApplicationContextConfig {
-		private static final Logger logger = LoggerFactory.getLogger(ApplicationContextConfig.class);
-
-		@Bean(name = "dataSource")
-		public DataSource getOracleDataSource() {
-			logger.debug("Starting of the method getOracleDataSource");
+		
+		@Bean(name="datasource")
+		public DataSource getOracleDataSource(){
 			DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
-			System.out.println("=====================================Datasource Reached===============================");
-			dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("=====================================Driver Manager Reached===============================");
-
 			dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-			System.out.println("=====================================URL Reached===============================");
-
-			dataSource.setUsername("system"); // Schema name
+			dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+			dataSource.setUsername("sys as sysdba");
 			dataSource.setPassword("pooja");
-			System.out.println("=====================================Connection Establish==============================");
-
-//			Properties connectionProperties = new Properties();
-//			connectionProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-   //   		dataSource.setConnectionProperties(connectionProperties);
-
-			logger.debug("Setting the data source :" + dataSource.getConnectionProperties());
-			logger.debug("Ending of the method getOracleDataSource");
 			return dataSource;
 		}
 			
@@ -59,7 +43,7 @@ import com.niit.collabration.Model.Userdetail;
 				Properties properties =new Properties();
 			    properties.put("hibernate dialect","org.hibernate.dialect.Oracle10gDialect");
 			    properties.put("hibernate.show_sql", "true");
-			    properties.put("hibernate.hbm2ddl.auto", "updtae");
+			    properties.put("hibernate.hbm2ddl.auto", "update");
 
 			    return properties;
 				
@@ -70,22 +54,16 @@ import com.niit.collabration.Model.Userdetail;
 		@Bean(name = "sessionFactory")
 		public SessionFactory getSessionFactory(DataSource dataSource) {
 
-			logger.debug("Starting of the method getSessionFactory");
 			System.out.println("=====================================session Factory Establish==============================");
 
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-			/*Properties connectionProperties = new Properties();
-
-			connectionProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-*/
+			
 			sessionBuilder.addProperties(getHibernateProperties());
 			sessionBuilder.addAnnotatedClass(Userdetail.class);
-			sessionBuilder.addAnnotatedClass(Job.class);
-			sessionBuilder.addAnnotatedClass(Forum.class);
-			sessionBuilder.addAnnotatedClass(Event.class);
 			sessionBuilder.addAnnotatedClass(Blog.class);
-
-			logger.debug("Ending of the method getSessionFactory");
+    		sessionBuilder.addAnnotatedClass(Event.class);
+			sessionBuilder.addAnnotatedClass(Forum.class);
+        	sessionBuilder.addAnnotatedClass(Job.class);
 			return sessionBuilder.buildSessionFactory();
 		}
 
@@ -93,10 +71,7 @@ import com.niit.collabration.Model.Userdetail;
 		@Bean(name = "transactionManager")
 		public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 
-			logger.debug("Starting of the method getTransactionManager");
 			HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
-
-			logger.debug("Ending of the method getTransactionManager");
 			return transactionManager;
 		}
 
