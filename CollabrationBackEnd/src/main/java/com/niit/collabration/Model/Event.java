@@ -1,5 +1,6 @@
 package com.niit.collabration.Model;
 
+import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -20,8 +21,7 @@ public class Event {
 	private String event_description;
 	private char event_status;
 	private Date event_dateofevent;
-
-	//private     image;
+    private Blob image;
 	//private int user_id;
 	
 	public int getEvent_id() {
@@ -51,8 +51,15 @@ public class Event {
 	public Date getEvent_dateofevent() {
 		return event_dateofevent;
 	}
-	public void setEvent_dateofevent(Date event_dateofevent) {
+	public void setEvent_dateofevnt(Date event_dateofevent) {
 		this.event_dateofevent = event_dateofevent;
 	}
+	public Blob getImage() {
+		return image;
+	}
+	public void setImage(Blob image) {
+		this.image = image;
+	}
+	
 	
 }

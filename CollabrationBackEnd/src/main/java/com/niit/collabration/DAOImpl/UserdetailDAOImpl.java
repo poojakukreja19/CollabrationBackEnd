@@ -31,9 +31,13 @@ import com.niit.collabration.Model.Userdetail;
 		return sessionFactory.getCurrentSession().createQuery("from Userdetail").list();
 		}
 
-		public boolean save(Userdetail user) {
+		public boolean save(Userdetail user)
+		{
 	       try {
-	      getSession().save(user);
+	    	   System.out.println("====================save method reached===========================");
+	  
+	      getSession().persist(user);
+	       System.out.println("====================save method executed======================");
 	    	   return true;
 		} catch (Exception e) {
 			e.printStackTrace();

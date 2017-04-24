@@ -29,7 +29,7 @@ public class JobDAOImpl  implements JobDAO{
 
 	public boolean save(Job job) {
 		 try {
-		      getSession().save(job);
+		      getSession().persist(job);
 		    	   return true;
 			} catch (Exception e) {
 				e.printStackTrace();

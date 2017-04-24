@@ -20,7 +20,7 @@ public class Blog {
 	private String bog_description;
 	private Date blog_dateofcreation;
 	private String blog_reason;
-	private char blog_status;
+	private String blog_status;
 	
 	public int getBlog_id() {
 		return blog_id;
@@ -52,12 +52,13 @@ public class Blog {
 	public void setBlog_reason(String blog_reason) {
 		this.blog_reason = blog_reason;
 	}
-	public char getBlog_status() {
+	public String getBlog_status() {
 		return blog_status;
 	}
-	public void setBlog_status(char blog_status) {
+	public void setBlog_status(String blog_status) {
 		this.blog_status = blog_status;
 	}
+	
 	
 	
 	

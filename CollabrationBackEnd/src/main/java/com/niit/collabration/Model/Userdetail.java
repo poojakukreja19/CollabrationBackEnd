@@ -14,18 +14,18 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Userdetail {
+public class Userdetail extends BaseDomian {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@NotEmpty(message="Please enter your name")
 	private String name;
-	@Size(min = 8, max = 15, message = "{Invalid Password}")
+	//@Size(min = 8, max = 15, message = "{Invalid Password}")
 	private String password;
-	@Column( unique=true, nullable=false)
 	private String address;
-    private Date DOB;
+    private String DOB;
+	@Column( unique=true, nullable=false)
 	private String mail;
 	private String contact;
 	private boolean active;// true or false
@@ -70,10 +70,10 @@ public class Userdetail {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Date getDOB() {
+	public String getDOB() {
 		return DOB;
 	}
-	public void setDOB(Date dOB) {
+	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
 	public boolean isActive() {
