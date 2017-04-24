@@ -35,57 +35,57 @@ public class JobTestCase {
 	}
 	
 	@Test
-	public void createJobTestCase()
+	public void createJob_detailTestCase()
 	{
 		job.setJob_id(0);
-		job.setJob_tittle("Java Profile");
-		job.setJob_description("Corejava,C++,sql");
+		job.setJob_tittle("Testing Profile");
+		job.setJob_description("Manual Tseting");
 		job.setJob_datetime(new Date());
 		job.setJob_qualification("B-tech");
 		job.setJob_status('A');
+		
+		System.out.println("========================save a job=========================");
 		boolean flag =	jobDAO.save(job);
-		Assert.assertEquals("createJobTestCase ",true, flag);
+		System.out.println("========================create a job=========================");
+
+		Assert.assertEquals("createJob_detailTestCase ",true, flag);
 	}
 	
-//	@Test
-//	public void updateBlogTestCase()
-//	{
-//		blog.setBlog_id(57);
-//		blog.setBlog_tittle("Festivals");
-//		blog.setBog_description("Religious Festival");
-//		blog.setBlog_dateofcreation(new Date());
-//		blog.setBlog_reason("Awareness");
-//		blog.setBlog_status("Not_Active");
-//		boolean flag =	blogDAO.update(blog);
-//		Assert.assertEquals("updateBlogTestCase ",true, flag);
-//		
-//	}
+	@Test
+	public void updateJob_detailTestCase()
+	{
+		job.setJob_id(87);
+		job.setJob_tittle("junior Analyst");
+		job.setJob_description("Nontechnical");
+		job.setJob_datetime(new Date());
+		job.setJob_qualification("B-tech, M-tech");
+		job.setJob_status('A');
+		
+		boolean flag =	jobDAO.update(job);
+		Assert.assertEquals("updateJob_detailTestCase ",true, flag);
+		
+	}
 	
-//	@Test
-//	public void deleteblogBYId()
-//	{
-//		blog.setBlog_id(57);
-//		blog.setBlog_tittle("Festivals");
-//		blog.setBog_description("Religious Festival");
-//		blog.setBlog_dateofcreation(new Date());
-//		blog.setBlog_reason("Awareness");
-//		blog.setBlog_status("Not_Active");
-//		boolean flag =	blogDAO.deleteblogById(57);
-//		Assert.assertEquals("deleteblogBYId ",true, flag);	
-//	}
+	@Test
+	public void deleteJob_detailBYId()
+	{
+		
+		boolean flag =	jobDAO.deletejobById(88);
+		Assert.assertEquals("deleteJob_detailBYId ",true, flag);	
+	}
 	
-//	@Test
-//	public void getblogBYId()
-//	{
-//		blog=blogDAO.getblogById(54);
-//		Assert.assertNotNull("getblogBYId",blog);
-//	}
-//	
-//	@Test
-//	public void getallblogTestCase()
-//	{
-//        int recordsFromDAO =  blogDAO.list().size();
-//		assertEquals("getallblogTestCase", 3, recordsFromDAO);
-//	}
-//	
+	@Test
+	public void getJob_detailBYId()
+	{
+		job=jobDAO.getjobById(90);
+		Assert.assertNotNull("getJob_detailBYId",job);
+	}
+	
+	@Test
+	public void getallJob_detailTestCase()
+	{
+        int recordsFromDAO =  jobDAO.list().size();
+		assertEquals("getallJob_detailTestCase", 3, recordsFromDAO);
+	}
+	
 }

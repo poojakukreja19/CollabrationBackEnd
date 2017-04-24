@@ -71,9 +71,9 @@ public class UserdetailTestCase {
 //	       Assert.assertEquals("createUserTestCase ",true, flag);
 //	}
 
-//	@Test
-//	public void deleteuserBYId()
-//	{
+	@Test
+	public void deleteuserBYId()
+	{
 //		userdetail.setId(49);
 //		userdetail.setName("priya");
 //		userdetail.setPassword("priya");
@@ -85,9 +85,9 @@ public class UserdetailTestCase {
 //		userdetail.setActive(true);
 //		userdetail.setRole("CUSTOMER");
 //		userdetail.setContact("9876543212");
-//	       boolean flag =	userdetailDAO.deleteuserById(49);
-//	       Assert.assertEquals("deleteuserBYId ",true, flag);
-//	}
+	       boolean flag =	userdetailDAO.deleteuserById(49);
+	       Assert.assertEquals("deleteuserBYId ",true, flag);
+	}
 	
 //	@Test
 //	public void getuserBYId()
@@ -112,14 +112,14 @@ public class UserdetailTestCase {
 //		assertEquals("validateCredentialTestCase", true,flag);
 //	}
 
-	@Test
-	public void getallUsersTestCase()
-	{
-        int recordsFromDAO =  userdetailDAO.list().size();
-		assertEquals("getallUsersTestCase", 3, recordsFromDAO);
-	}
-
-	
+//	@Test
+//	public void getallUsersTestCase()
+//	{
+//        int recordsFromDAO =  userdetailDAO.list().size();
+//		assertEquals("getallUsersTestCase", 3, recordsFromDAO);
+//	}
+//
+//	
 	// test the user by its status (0 or 1)
 	
 }
