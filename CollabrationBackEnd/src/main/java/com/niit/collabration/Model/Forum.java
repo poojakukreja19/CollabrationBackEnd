@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Forum {
+public class Forum extends BaseDomian{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
