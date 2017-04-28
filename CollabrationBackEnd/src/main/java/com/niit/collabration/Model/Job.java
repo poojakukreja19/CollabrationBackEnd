@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 @Table(name ="job_detail")
-public class Job {
+public class Job extends BaseDomian{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
