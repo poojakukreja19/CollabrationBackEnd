@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Event {
+public class Event extends BaseDomian {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
