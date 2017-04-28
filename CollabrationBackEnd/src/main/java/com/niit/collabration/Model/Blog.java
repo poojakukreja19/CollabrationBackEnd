@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Blog {
+public class Blog extends BaseDomian {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
